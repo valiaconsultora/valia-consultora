@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: 'es'
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: "encuestas"
+    label: "📊 Encuestas"
+    folder: "_data/encuestas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tipo", name: "tipo", widget: "select", options: ["Propia", "Terceros", "Promedio"]}
+      - {label: "Título", name: "titulo", widget: "string"}
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Muestra", name: "muestra", widget: "string", required: false}
+      - {label: "Cobertura", name: "cobertura", widget: "string", required: false}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+      - {label: "Imagen", name: "imagen", widget: "image", required: false}
+
+  - name: "articulos"
+    label: "📝 Artículos"
+    folder: "_data/articulos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "titulo", widget: "string"}
+      - {label: "Categoría", name: "categoria", widget: "select", options: ["Nacional", "Provincial", "Geopolítica"]}
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Autor", name: "autor", widget: "string", default: "VALIA Consultora"}
+      - {label: "Imagen destacada", name: "imagen", widget: "image", required: false}
+      - {label: "Contenido", name: "body", widget: "markdown"}
